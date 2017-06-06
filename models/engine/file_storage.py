@@ -1,10 +1,13 @@
-    #!/usr/bin/python3
+#!/usr/bin/python3
 import json
 import datetime
 
+json.JSONEncoder.default = lambda self, obj: (obj.isoformat() if isinstance(obj, datetime.datetime) else obj.__dict__)
+
+
 class FileStorage:
-    def __init__(self, file_path="./file.json"):
-        self.__file_path = file_path
+    def __init__(self):
+        self.__file_path = "./file.json"
         self.__objects = {}
 
     def all(self):
