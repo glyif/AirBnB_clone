@@ -2,8 +2,11 @@
 import json
 import datetime
 
-json.JSONEncoder.default = lambda self, obj: (obj.isoformat() if isinstance(obj, datetime.datetime) else obj.__dict__)
-
+class DateDecoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime.datetime):
+            return (obj.isoformat())
+        return (obj.__dict)
 
 class FileStorage:
     def __init__(self):
@@ -21,7 +24,7 @@ class FileStorage:
         for key in self.__objects.keys():
             json_obj[key] = self.__objects[key].to_json()
         with open(self.__file_path, mode='w') as fd:
-            json.dump(json_obj, fd)
+            json.dump(json_obj, fd, cls=DateDecoder)
 
     def reload(self):
         try:
