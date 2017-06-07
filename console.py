@@ -3,10 +3,11 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand - class for HBNB cli
-    
+
     inherits from cmd.Cmd
     """
     prompt = "(hbnb) "
@@ -14,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """
         quit - quits from the cli
-        
+
         Args:
         @self: self
         @arg: argument
@@ -24,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """
         EOF - end of file
-        
+
         Args:
         @self: self
         @arg: argument
@@ -33,7 +34,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         class_list = ["BaseModel"]
-        if arg not in class_list:
+        if len(arg) < 1:
+            print("** class name missing **")
+        elif arg not in class_list:
             print("** class doesn't exist **")
         if (arg == "BaseModel"):
             model = BaseModel()
@@ -56,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
         instance = storage.all()
         setattr(instance[args[1]], args[2], args[3])
         storage.save()
-    
+
     def do_all(self, arg):
         args = arg.split()
         instance_list = []
