@@ -32,8 +32,10 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, arg):
-        class_list = ["BaseModel"]
-        if arg not in class_list:
+        class_list = ["BaseModel", "User"]
+        if len(arg) < 1:
+            print("** class name missing **")
+        elif arg not in class_list:
             print("** class doesn't exist **")
         if (arg == "BaseModel"):
             model = BaseModel()
