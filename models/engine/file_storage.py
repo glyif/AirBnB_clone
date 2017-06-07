@@ -35,5 +35,7 @@ class FileStorage:
                 for key, value in dump.items():
                     if value.get('__class__') == 'BaseModel':
                         self.__objects[key] = BaseModel(dump[key])
+                    if value.get('__class__') == 'User':
+                        self.__objects[key] = User(dump[key])
         except FileNotFoundError:
                 pass
