@@ -32,6 +32,7 @@ class FileStorage:
                 read = fd.read()
                 dump = json.loads(read)
                 from ..base_model import BaseModel
+                from ..user import User
                 for key, value in dump.items():
                     if value.get('__class__') == 'BaseModel':
                         self.__objects[key] = BaseModel(dump[key])
