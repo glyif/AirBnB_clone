@@ -57,5 +57,20 @@ class HBNBCommand(cmd.Cmd):
         setattr(instance[args[1]], args[2], args[3])
         storage.save()
     
+    def do_all(self, arg):
+        args = arg.split()
+        instance_list = []
+        instance = storage.all()
+
+        if len(args) < 1:
+            for value, count in instance.items():
+                instance_list.append(str(instance[value]))
+            print("{}".format(instance_list))
+        else:
+            for value, count in instance.items():
+                if instance[value].__class__.__name__ == args[0]:
+                    instance_list.append(str(instance[value]))
+            print("{}".format(instance_list))
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
