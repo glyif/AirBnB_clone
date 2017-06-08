@@ -46,15 +46,22 @@ class HBNBCommand(cmd.Cmd):
                 }
         if arg not in functions.keys():
             print("** class doesn't exist **")
-        if arg in functions.keys():
+        else:
             model = functions[arg]()
             model.save()
             print("{}".format(model.id))
 
     def do_show(self, arg):
         args = arg.split()
-        instance = storage.all()
-        print(instance[args[1]])
+        if len(args) != 2:
+            print("** class name missing **")
+            return
+
+        if (self.validate_instance(args[0], args[1])):
+            instance = storage.all()
+            print(instance[args[1]])
+        else:
+            return
 
     def do_destroy(self, arg):
         args = arg.split()
@@ -88,6 +95,31 @@ class HBNBCommand(cmd.Cmd):
         if self.lastcmd:
             self.lastcmd = ""
             return self.onecmd('\n')
+
+    @staticmethod
+    def validate_input(arg):
+        class_list = ["BaseModel"]
+        if arg[0] not in class_list:
+            print("** class doesn't exist **")
+            return
+        return (arg[0])
+
+    @staticmethod
+    def validate_len(arg, length, message):
+        if len(arg) < length:
+            print(message)
+            return (None)
+        else:
+            return (arg)
+
+    @staticmethod
+    def validate_instance(class_name, id):
+        master_json = storage.all()
+        if id in master_json.keys():
+            if master_json[id].__class__.__name__ == class_name:
+                return (id)
+        print("** instance id missing **")
+        return (None)
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
