@@ -31,12 +31,12 @@ class FileStorage:
             with open(self.__file_path, mode='r') as fd:
                 read = fd.read()
                 dump = json.loads(read)
-                from ..base_model import BaseModel
-                from ..user import User
+                from models.base_models import BaseModel
+                from models.user import User
+                class_list = ["BaseModel", "User"]
                 for key, value in dump.items():
-                    if value.get('__class__') == 'BaseModel':
-                        self.__objects[key] = BaseModel(dump[key])
-                    if value.get('__class__') == 'User':
-                        self.__objects[key] = User(dump[key])
+                    if value.get('__class__') in class_list:
+                        function = value.get('__class__')
+                        self.__objects[key] = eval(str(function))(dump[key])
         except FileNotFoundError:
                 pass
