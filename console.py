@@ -88,9 +88,7 @@ class HBNBCommand(cmd.Cmd):
 
     """ prevent empty line + ENTER from exectuing lastcmd"""
     def emptyline(self):
-        if self.lastcmd:
-            self.lastcmd = ""
-            return self.onecmd('\n')
+        return False
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
