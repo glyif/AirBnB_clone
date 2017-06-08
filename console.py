@@ -6,6 +6,7 @@ from models.city import City
 from models.review import Review
 from models.place import Place
 from models.state import State
+from models.user import User
 from models import storage
 
 class HBNBCommand(cmd.Cmd):
@@ -40,9 +41,11 @@ class HBNBCommand(cmd.Cmd):
         functions = {
                 "BaseModel" : BaseModel,
                 "Amenity"   : Amenity,
-                "City"      : Place,
+                "City"      : City,
+                "Place"     : Place,
                 "Review"    : Review,
-                "State"     : State
+                "State"     : State,
+                "User"      : User
                 }
         if arg not in functions.keys():
             print("** class doesn't exist **")
