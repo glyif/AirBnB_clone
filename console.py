@@ -83,5 +83,11 @@ class HBNBCommand(cmd.Cmd):
                     instance_list.append(str(instance[value]))
             print("{}".format(instance_list))
 
+    """ prevent empty line + ENTER from exectuing lastcmd"""
+    def emptyline(self):
+        if self.lastcmd:
+            self.lastcmd = ""
+            return self.onecmd('\n')
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
