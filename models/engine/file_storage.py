@@ -31,9 +31,16 @@ class FileStorage:
             with open(self.__file_path, mode='r') as fd:
                 read = fd.read()
                 dump = json.loads(read)
-                from ..base_model import BaseModel
+                from models.base_model import BaseModel
+                from models.amenity import Amenity
+                from models.city import City
+                from models.place import Place
+                from models.review import Review
+                from models.state import State
+                class_list = ["BaseModel", "Amenity", "City", "Place", "Review", "State"]
                 for key, value in dump.items():
-                    if value.get('__class__') == 'BaseModel':
-                        self.__objects[key] = BaseModel(dump[key])
+                    if value.get('__class__') in class_list:
+                        function = value.get('__class__')
+                        self.__objects[key] = eval(str(function))(dump[key])
         except FileNotFoundError:
                 pass
