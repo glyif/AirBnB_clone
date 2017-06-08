@@ -33,12 +33,11 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, arg):
-        class_list = ["BaseModel"]
-        if len(arg) < 1:
-            print("** class name missing **")
-        elif arg not in class_list:
-            print("** class doesn't exist **")
-        if (arg == "BaseModel"):
+        arg = arg.split()
+        if (not self.validate_len(arg, 1, "** class name missing **")):
+                return
+        v_input = self.validate_input(arg)
+        if (v_input == "BaseModel"):
             model = BaseModel()
             model.save()
             print("{}".format(model.id))
@@ -74,6 +73,20 @@ class HBNBCommand(cmd.Cmd):
                 if instance[value].__class__.__name__ == args[0]:
                     instance_list.append(str(instance[value]))
             print("{}".format(instance_list))
+
+    def validate_input(self, arg):
+        class_list = ["BaseModel"]
+        if arg[0] not in class_list:
+            print("** class doesn't exist **")
+            return
+        return (arg[0])
+
+    def validate_len(self, arg, length, message):
+        if len(arg) < length:
+            print(message)
+            return (None)
+        else:
+            return (arg)
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
