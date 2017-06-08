@@ -66,14 +66,18 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         args = arg.split()
         instance = storage.all()
-        del(instance[args[1]])
-        storage.save()
+        if (self.validate_instance(args[0], args[1])):
+            del(instance[args[1]])
+            storage.save()
+        else:
+            return
 
     def do_update(self, arg):
         args = arg.split()
         instance = storage.all()
-        setattr(instance[args[1]], args[2], args[3])
-        storage.save()
+        if (self.validate_instance(args[0], args[1])):
+            setattr(instance[args[1]], args[2], args[3])
+            storage.save()
     
     def do_all(self, arg):
         args = arg.split()
