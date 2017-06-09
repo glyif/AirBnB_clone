@@ -65,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         args = arg.split()
         instance = storage.all()
-        for key, value in instance.items():
+        for key in list(instance):
             instance_id = key.split('.')[1]
             if instance_id == args[1]:
                 instance.pop(key, 0)
