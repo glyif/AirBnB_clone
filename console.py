@@ -57,19 +57,28 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         args = arg.split()
         instance = storage.all()
-        print(instance[args[1]])
+        for key, value in instance.items():
+            instance_id = key.split('.')[1]
+            if instance_id == args[1]:
+                print(instance.get(key))
 
     def do_destroy(self, arg):
         args = arg.split()
         instance = storage.all()
-        del(instance[args[1]])
-        storage.save()
+        for key, value in instance.items():
+            instance_id = key.split('.')[1]
+            if instance_id == args[1]:
+                instance.pop(key, 0)
+                storage.save()
 
     def do_update(self, arg):
         args = arg.split()
         instance = storage.all()
-        setattr(instance[args[1]], args[2], args[3])
-        storage.save()
+        for key, value in instance.items():
+            instance_id = key.split('.')[1]
+            if instance_id == args[1]:
+                setattr(instance.get(key), args[2], args[3])
+                storage.save()
     
     def do_all(self, arg):
         args = arg.split()
