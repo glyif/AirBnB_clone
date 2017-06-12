@@ -17,7 +17,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        self.__objects[obj.id] = obj
+        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
         json_obj = {}
@@ -37,7 +37,8 @@ class FileStorage:
                 from models.place import Place
                 from models.review import Review
                 from models.state import State
-                class_list = ["BaseModel", "Amenity", "City", "Place", "Review", "State"]
+                from models.user import User
+                class_list = ["BaseModel", "Amenity", "City", "Place", "Review", "State", "User"]
                 for key, value in dump.items():
                     if value.get('__class__') in class_list:
                         function = value.get('__class__')
