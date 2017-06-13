@@ -154,8 +154,8 @@ class HBNBCommand(cmd.Cmd):
         """
         input_validation - validates input router
 
-        STATIC METHOD
-        @ARGS: LIST ARGUMENTS
+        static method
+        @args: list arguments
         """
         function = inspect.stack()[1][3]
         if function == "do_create":
