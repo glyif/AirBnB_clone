@@ -2,11 +2,13 @@
 import json
 import datetime
 
+
 class DateDecoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime.datetime):
             return (obj.isoformat())
         return (obj.__dict)
+
 
 class FileStorage:
     def __init__(self):
@@ -38,7 +40,8 @@ class FileStorage:
                 from models.review import Review
                 from models.state import State
                 from models.user import User
-                class_list = ["BaseModel", "Amenity", "City", "Place", "Review", "State", "User"]
+                class_list = ["BaseModel", "Amenity", "City", "Place",
+                              "Review", "State", "User"]
                 for key, value in dump.items():
                     if value.get('__class__') in class_list:
                         function = value.get('__class__')

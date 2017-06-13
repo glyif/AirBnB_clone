@@ -26,7 +26,8 @@ class TestCity(unittest.TestCase):
         self.model.name = "San Francisco"
         self.model.state_id = "7d78d8de-a37f-4edd-9443-1578032a1eea"
         self.assertEqual(self.model.name, "San Francisco")
-        self.assertEqual(self.model.state_id, "7d78d8de-a37f-4edd-9443-1578032a1eea")
+        self.assertEqual(self.model.state_id,
+                         "7d78d8de-a37f-4edd-9443-1578032a1eea")
 
 if __name__ == '__main__':
     unittest.main()
