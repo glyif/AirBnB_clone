@@ -1,11 +1,11 @@
 # AirBnB clone, or, The Holberton B&B
 
 ### Description
-With the end goal being a full web application, the first version of this  project focuses on creating a command line interpreter to be able to manage objects.
-In the future this version will be used for front-end integration (HTML/CSS templating, database storage, API).
+The first version of this project focuses on creating a command line interpreter to be able to manage objects.
+The final version will be a full web application, using this code as the core, with front-end integration (HTML/CSS templating, database storage, API).
 
 ### Synopsis
-Being a command line interpreter with specific use-cases limits this this versions functionality to the following:
+The command interpreter has specific use-cases for managing objects which limits this this version's functionality to the following:
 * Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc...
 * Do operations on objects (count, compute stats, etc...)
