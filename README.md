@@ -5,7 +5,7 @@ The first version of this project focuses on creating a command line interpreter
 The final version will be a full web application, using this code as the core, with front-end integration (HTML/CSS templating, database storage, API).
 
 ### Synopsis
-The command interpreter has specific use-cases for managing objects which limits this this version's functionality to the following:
+The command interpreter has specific use-cases for managing objects which limits this version's functionality to the following:
 * Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc...
 * Do operations on objects (count, compute stats, etc...)
