@@ -6,8 +6,8 @@ import uuid
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
-        if len(args) > 0:
-            self.__dict__ = args[0]
+        if len(kwargs) > 0:
+            self.__dict__ = kwargs[0]
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
