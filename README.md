@@ -16,8 +16,8 @@ Being a command line interpreter with specific use-cases limits this this versio
 To execute the command line interpreter in interactive mode run this command:
 `./console.py`
 
-|   **Command**    |  **Definition**								| **Example*
-|---------------|---------------------------------------|---------------------------------------|--------------------- 
+|   **Command**    |  **Definition**								| **Example**		|
+|---------------|---------------------------------------|---------------------------------------|----------------------|
 |  `help`	|  displays available commands, showsif they have documentation			| `help`	       |
 |  `quit`	|  exits the console								| `quit`	       |
 |  `EOF` 	|  exits the console								| `EOF`		       |
