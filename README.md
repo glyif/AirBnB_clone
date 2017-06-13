@@ -14,18 +14,21 @@ Being a command line interpreter with specific use-cases limits this this versio
 
 ## Usage
 To execute the command line interpreter in interactive mode run this command:
-`./console.py`
+```
+./console.py
+```
 
-|   **Command**    |  **Definition**								| **Example**		|
-|---------------|---------------------------------------|---------------------------------------|----------------------|
-|  `help`	|  displays available commands, showsif they have documentation			| `help`	       |
-|  `quit`	|  exits the console								| `quit`	       |
-|  `EOF` 	|  exits the console								| `EOF`		       |
-|  `create` 	|  creates a new instance, saves it to JSON file, and prints id 		| `create <class name>` |
-|  `show`	|  prints the string representation of an instance based on the class name	| `show <class name> <id>` |
+|   **Command** |  **Definition**						 | **Example**		|
+|---------------|--------------------------------------------------------------- |----------------------|
+|  `help`	|  displays available commands, showsif they have documentation	 | `help`	       |
+|  `quit`	|  exits the console						 | `quit`	       |
+|  `EOF` 	|  exits the console						 | `EOF`		       |
+|  `create` 	|  creates a new instance, saves it to JSON file, and prints id  | `create <class name>` |
+|  `show`	|  prints the string representation of an instance based on the class name	|  `show <class name> <id>` |
 |  `destroy`  	|  deletes an instance based on the class name and id		   		| `destroy <class name> <id>` |
 |  `all`  	|  prints all string representations, can be specified by class			| `all` or `all <class name>` |
 |  `update`	|  updates an instance based on the class name and id by adding or updating attribute | `update <class name> <id> <attribute name> <attribute value>` |
+
 
 To run in non-interactive mode:
 ```
