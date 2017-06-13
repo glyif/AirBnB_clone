@@ -140,6 +140,10 @@ class HBNBCommand(cmd.Cmd):
                     instance_list.append(str(instance[value]))
             print("{}".format(instance_list))
 
+    def do_User(self, arg):
+        if arg == ".all()":
+            self.do_all("User")
+
     """ prevent empty line + ENTER from exectuing lastcmd"""
     def emptyline(self):
         return False
