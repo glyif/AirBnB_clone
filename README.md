@@ -52,3 +52,8 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) 
 $
 ```
+
+### Authors
+
+*Bobby Yang* - [Github](https://github.com/glyif) || [Twitter](https://twitter.com/bobstermyang) || [email](gaoqing.yang@holbertonschool.com)
+*Joe McDaniel* - [Github](https://github.com/joseph-mcdaniel) || [Twitter](https://twitter.com/joe_w_mcdaniel) || [email](joseph.mcdaniel@holbertonschool.com)
