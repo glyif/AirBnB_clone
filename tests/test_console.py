@@ -21,15 +21,6 @@ class TestConsole(unittest.TestCase):
         self.assertTrue(cli.onecmd("quit"))
         self.assertTrue(cli.onecmd("EOF"))
 
-    def test_class_error(self):
-        """ show error whenn class is missing or doesn't exist """
-        cli = self.create()
-        self.assertFalse(cli.onecmd("create"))
-        self.assertEqual("** class name missing **", self._last_write())
-        self.mock_stdout.reset_mock()
-        self.assertFalse(cli.onecmd("create my_model"))
-        self.assertEqual("** class doesn't exist **", self._last_write())
-
     def _last_write(self, nr=None):
         """:return: last `n` output lines"""
         if nr is None:
