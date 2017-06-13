@@ -3,6 +3,7 @@ from models import storage
 from datetime import datetime, date
 import uuid
 
+
 class BaseModel:
     def __init__(self, *args, **kwargs):
         if len(args) > 0:
@@ -13,7 +14,8 @@ class BaseModel:
             storage.new(self)
 
     def __str__(self):
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
 
     def save(self):
         self.updated_at = datetime.now()

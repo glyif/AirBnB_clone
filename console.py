@@ -10,28 +10,29 @@ from models.state import State
 from models.user import User
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand - class for HBNB cli
-    
+
     inherits from cmd.Cmd
     """
     prompt = "(hbnb) "
 
     functions = {
-            "BaseModel" : BaseModel,
-            "Amenity"   : Amenity,
-            "City"      : City,
-            "Place"     : Place,
-            "Review"    : Review,
-            "State"     : State,
-            "User"      : User
+        "BaseModel": BaseModel,
+        "Amenity": Amenity,
+        "City": City,
+        "Place": Place,
+        "Review": Review,
+        "State": State,
+        "User": User
         }
 
     def do_quit(self, arg):
         """
         quit - quits from the cli
-        
+
         Args:
         @self: self
         @arg: argument
@@ -41,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """
         EOF - end of file
-        
+
         Args:
         @self: self
         @arg: argument
@@ -83,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """
         do_destroy - delete/destroys an object
-        
+
         Args:
         @self: self
         @arg: argument
@@ -114,11 +115,11 @@ class HBNBCommand(cmd.Cmd):
                     value = self.type_checker(args[3])
                     setattr(instance.get(key), args[2], value)
                     storage.save()
-    
+
     def do_all(self, arg):
         """
         do_all - prints all
-        
+
         Args:
         @self: self
         @arg: arguments
@@ -152,9 +153,9 @@ class HBNBCommand(cmd.Cmd):
     def input_validation(args):
         """
         input_validation - validates input router
-        
-        static method
-        @args: list arguments
+
+        STATIC METHOD
+        @ARGS: LIST ARGUMENTS
         """
         function = inspect.stack()[1][3]
         if function == "do_create":
@@ -165,6 +166,7 @@ class HBNBCommand(cmd.Cmd):
             return (HBNBCommand.instance_validate(args))
         elif function == "do_update":
             return (HBNBCommand.update_validate(args))
+
     @staticmethod
     def class_validate(args):
         """
@@ -200,7 +202,7 @@ class HBNBCommand(cmd.Cmd):
     def update_validate(args):
         """
         update_validate - validate update arguments
-        
+
         Args:
         @args: arguments
         """
