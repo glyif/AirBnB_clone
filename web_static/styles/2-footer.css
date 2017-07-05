@@ -1,0 +1,16 @@
+footer {
+	position: fixed;
+	height: 60px;
+	background-color: #00FF00;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+
+footer .container {
+	position: relative;
+	float: left;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

@@ -1,0 +1,17 @@
+footer {
+	position: fixed;
+	height: 60px;
+	background-color: #fff;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	border-top: 1px #CCCCCC solid;
+}
+
+footer .container {
+	position: relative;
+	float: left;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
